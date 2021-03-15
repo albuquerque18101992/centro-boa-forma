@@ -1,0 +1,513 @@
+/*MENU*/
+.menu{
+    display: flex;
+    position:relative;
+}
+
+ul{
+    margin: 0;
+    padding: 19px;
+    display: flex;
+}
+
+ul li{
+   list-style: none;
+   margin:  0 20px;
+   transition: 0.5s;
+}
+
+ul li a{
+    display: block;
+    position: relative;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 18px;
+    font-family: consolas;
+    color: #fff;
+    text-transform: uppercase;
+    transition: 0.5s;
+
+}
+
+ul:hover li a{
+    transform: scale(1.5);
+    opacity: .2;
+    filter: blur(5px);
+}
+
+ul li a:hover{
+    transform: scale(2);
+    opacity: 1;
+    filter: blur(0);
+}
+
+ul li a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff0000;
+    transition: transform 0.5s;
+    transform-origin: right;
+    transform: scaleX(0);
+    z-index: -1;
+    border-radius: 5px;
+}
+
+ul li a:hover:before{
+    transition: transform 0.5s;
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+
+/*CARDS HOME*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: consolas;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #111;
+}
+
+.container-home{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    flex-wrap: wrap;
+}
+
+.container-home .box-home{
+    position: relative;
+    width: 320px;
+    height: 400px;
+    color: #fff;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 30px;
+    transition: 0.5s;
+}
+.container-home .box-home:hover{
+ transform: translateY(-30px)
+}
+
+.container-home .box-home::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff1e00, #030000);
+}
+
+.container-home .box-home:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff1e00, #030000);
+    filter: blur(30px);
+}
+
+.container-home .box-home:nth-child(2)::before,
+.container-home .box-home:nth-child(2)::after{
+    background: linear-gradient(315deg, #ff0000, #030000);
+}
+
+.container-home .box-home:nth-child(3)::before,
+.container-home .box-home:nth-child(3)::after{
+    background: linear-gradient(315deg, #ff0000, #030000);
+}
+
+.container-home .box-home span{
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    background: rgba(0,0,0,0.6);
+    z-index: 2;
+}
+
+.container-home .box-home span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    pointer-events: none;
+}
+
+.container-home .box-home .content-home{
+    position: relative;
+    z-index: 10;
+    padding: 20px 40px;
+}
+
+.container-home .box-home .content-home h2{
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.container-home .box-home .content-home p{
+    font-size: 1.1em;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+}
+
+.container-home .box-home .content-home a{
+    display: inline=block;
+    font-size: 1.1em;
+    color: #111;
+    background: #fff;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 6px;
+}
+
+/*ANIMAÇÃO FONTAWESOME*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+section .row{
+    position: relative;
+    top: -50%;
+    width: 100%;
+    display: flex;
+    padding: 10px 0;
+    white-space: nowrap;
+    font-size: 64px;
+    transform: rotate(-30deg);
+}
+
+i{
+    color: rgba(0,0,0,0.5);
+    transition: 1s;
+    padding: 0 5px;
+    user-select: none;
+    cursor: default;
+}
+
+i:hover{
+    transition: 0s;
+    color: rgb(255, 0, 0);
+    text-shadow: 0 0 120px rgb(255, 0, 0);
+}
+
+section .row div{
+    animation: animate1 80s linear infinite;
+    animation-delay: -80s;
+}
+
+section .row div:nth-child(2){
+    animation: animate2 80s linear infinite;
+    animation-delay: -40s;
+}
+
+@keyframes animate1{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes animate2{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-200%);
+    }
+}
+
+
+section .row:nth-child(even) div{
+    animation: animate3 80s linear infinite;
+    animation-delay: -80s;
+}
+
+section .row:nth-child(even) div:nth-child(2){
+    animation: animate4 80s linear infinite;
+    animation-delay: -40s;
+}
+
+@keyframes animate3{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+
+@keyframes animate4{
+    0%{
+        transform: translateX(-200%);
+    }
+    100%{
+        transform: translateX(-0%);
+    }
+}
+
+/*CARD CURSOS*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: consolas;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(0deg, #b8ff2e, #2ea8ff);
+    background-attachment: fixed;
+}
+
+.container-curso {
+    position: relative;
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding: 20px 0;
+}
+
+.container-curso .card-curso {
+    position: relative;
+    height: 250px;
+    display: flex;
+    width: 45%;
+    margin: 30px 0;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.container-curso .card-curso .imgBx-curso {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgb(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.5s ease-in-out;
+}
+
+.container-curso .card-curso:hover .imgBx-curso {
+    height: 150px;
+    width: 150px;
+    left: -75px;
+    top: calc(50% - 75px);
+}
+
+.container-curso .card-curso .imgBx-curso img {
+    max-width: 100px;
+    filter: invert(1);
+    transition: 0.5s ease-in-out;
+}
+
+.container-curso .card-curso:hover .imgBx-curso img {
+    max-width: 75px;
+}
+
+.container-curso .card-curso .content-curso {
+    position: absolute;
+    right: 0;
+    width: calc(100% -75px);
+    height: 100%;
+    padding: 90px;
+    /*padding que ajustou o <p> dentro do card-curso*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-curso .card-curso .content-curso h3 {
+    color: #ff0057;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.container-curso .card-curso .content-curso a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    background: #0095ff;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+
+
+
+
+@media(max-width: 992px) {
+    .container-curso {
+        position: relative;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-curso .card-curso {
+        width: 400px;
+        height: auto;
+        flex-direction: column;
+        background: transparent;
+        margin: -20px 0;
+        box-shadow: none;
+    }
+
+    .container-curso .card-curso .imgBx-curso {
+        position: relative;
+        background: rgba(136, 207, 224, 0.418);
+    }
+
+    .container-curso .card-curso .imgBx-curso,
+    .container-curso .card-curso:hover .imgBx-curso {
+        width: 80%;
+        height: 200px;
+        top: 100px;
+        left: 10%;
+    }
+
+    .container-curso .card-curso:hover .imgBx-curso {
+        top: 80px;
+        background: linear-gradient(0deg, #0095ff, #1b6396);
+    }
+
+
+    .container-curso .card-curso .imgBx-curso img,
+    .container-curso .card-curso:hover .imgBx-curso img {
+        max-width: 100px;
+    }
+
+    .container-curso .card-curso .content-curso {
+        position: relative;
+        width: 100%;
+        background: #fff;
+        box-shadow: none;
+        border-radius: 20px;
+        padding: 20px 40px 40px;
+        border-top: 100px solid #fff;
+    }
+}
+
+
+/*RODAPE*/
+section{
+    width: 100%;
+    height: 100vh;
+    background: url(../img/homebg1.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+section .wave{
+    position:fixed;
+    width: 100%;
+    height: 143px;
+    bottom: -55px;
+    left: 0;
+    background: url(../img/wave.png);
+    animation: animate 10s linear infinite;
+}
+
+section .wave:before{
+    content: '';
+    width: 100%;
+    height: 143px;
+    background: url(../img/wave.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+    animation: animate-reverse 10s linear infinite;
+}
+
+section .wave:after{
+    content: '';
+    width: 100%;
+    height: 143px;
+    background: url(../img/wave.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    animation-delay: -5s;
+    animation: animate 20s linear infinite;
+}
+
+@keyframes animate {
+
+    0%{
+        background-position: 0;
+    }
+    100%{
+        background-position: 1360px;
+    }
+
+}
+
+@keyframes animate-reverse {
+
+    0%{
+        background-position: 1360px;
+    }
+    100%{
+        background-position: 0;
+    }
+
+}
